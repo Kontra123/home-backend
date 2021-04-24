@@ -1,0 +1,5 @@
+{
+    "mongodb": {
+        "uri": "mongodb+srv://kontra:EUQ9CKNMhdXJ9SpU@resources.uxikp.mongodb.net/test"
+    }
+}
