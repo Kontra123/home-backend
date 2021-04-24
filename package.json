@@ -3,12 +3,13 @@
   "version": "0.3.0",
   "description": "Home-backend",
   "engines": {
-    "node": "14.x"
+    "node": "10.24.0"
   },
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "node test.js"
+    "test": "node test.js",
+    "debug": "node --inspect-brk server.js"
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",
