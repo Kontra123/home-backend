@@ -1,0 +1,37 @@
+{
+  "name": "Home-backend",
+  "version": "0.3.0",
+  "description": "Home-backend",
+  "engines": {
+    "node": "14.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "ejs": "^2.5.6",
+    "http-status": "^1.4.2",
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^9.4.0",
+    "mongodb": "^3.6.4",
+    "mongoose": "^5.11.18"
+  },
+  "devDependencies": {
+    "got": "^11.3.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heroku/home-backend"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}
