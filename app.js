@@ -23,7 +23,7 @@ app.use(bodyParser({
 router.get('/resources', _mainController.getResources);
 router.get('/actions', _mainController.getActions);
 router.post('/resource/create', _mainController.createResource);
-
+//
 // Mongoose config
 mongoose.Promise = require('bluebird');
 const mongoUri = process.env.MONGOURI;
