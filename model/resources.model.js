@@ -22,7 +22,7 @@ ResourcesModel.statics.getResources = async function() {
 
 ResourcesModel.statics.createResource = async function(body) {
 
-    return new this(body).save().lean().catch(e => {
+    return new this(body).save().catch(e => {
         console.error('createResource err', e);
     });
 
