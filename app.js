@@ -19,7 +19,7 @@ app.use(cors());
 app.use(bodyParser({
   jsonLimit: '30mb'
 }));
-
+//
 router.get('/resources', _mainController.getResources);
 router.get('/actions', _mainController.getActions);
 router.post('/resource/create', _mainController.createResource);
