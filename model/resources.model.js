@@ -7,7 +7,7 @@ const ResourcesModel = new Schema({
     id: {type: Number, default: -1},
     name: {type: String},
     path: {type: String},
-    actionsIds: [Number],
+    actionIds: [Number],
     resourceType: { type: String },
     description: { type: String }
 })
