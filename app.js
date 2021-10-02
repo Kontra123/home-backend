@@ -8,9 +8,10 @@ const mongoose = require('mongoose');
 const bodyParser = require('koa-bodyparser');
 
 
-const _mainController = require('./controller/mainController');
+const _resourceController = require('./controller/resourceController');
+const _actionController = require('./controller/actionController');
 
-const PORT = process.env.PORT || 3002
+const PORT = process.env.PORT || 9002
 const app = new Koa();
 const router = new Router();
 
@@ -20,9 +21,15 @@ app.use(bodyParser({
   jsonLimit: '30mb'
 }));
 //
-router.get('/resources', _mainController.getResources);
-router.get('/actions', _mainController.getActions);
-router.post('/resource/create', _mainController.createResource);
+router.get('/echo', (ctx) => ctx.body = 'Hello World');
+
+router.get('/resource/:id', _resourceController.getResource);
+router.get('/resources', _resourceController.getAllResources);
+router.post('/resource/create', _resourceController.createResource);
+router.put('/resource/update/:id', _resourceController.updateResource);
+router.delete('/resource/delete/:id', _resourceController.deleteResource);
+
+router.get('/actions', _actionController.getAllActions);
 //
 // Mongoose config
 mongoose.Promise = require('bluebird');
@@ -33,11 +40,13 @@ mongoose.connect(mongoUri, { useNewUrlParser: true }).catch(err => {
 });
 
 app.use(router.routes());
-    
+
+// mongodb.connect();
+
 app.listen(PORT, function () {
-  console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/", PORT, PORT);
+    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/", PORT, PORT);
 });
-
-
+    
+module.exports = app
 
 

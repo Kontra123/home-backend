@@ -3,13 +3,14 @@
   "version": "0.3.0",
   "description": "Home-backend",
   "engines": {
-    "node": "10.24.0"
+    "node": "12.22.3"
   },
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "node test.js",
-    "debug": "node --inspect-brk server.js"
+    "debug": "node --inspect-brk server.js",
+    "test:integration": "jest --watchAll --runInBand \"test/.*\\.test\\.js\""
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",
@@ -23,6 +24,8 @@
   },
   "devDependencies": {
     "got": "^11.3.0",
+    "jest": "^25.5.4",
+    "supertest": "^6.1.6",
     "tape": "^4.7.0"
   },
   "repository": {

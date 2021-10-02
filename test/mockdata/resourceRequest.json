@@ -1,0 +1,13 @@
+{
+    "id": 6,
+    "actionIds": [
+        1,
+        2,
+        3
+    ],
+    "name": "Item 6",
+    "description": "This is Item 6 description",
+    "resourceType": "x type 6",
+    "path": "api/details/item_6",
+    "__v": 0
+}

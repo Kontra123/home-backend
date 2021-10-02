@@ -12,11 +12,18 @@ const ResourcesModel = new Schema({
     description: { type: String }
 })
 
+ResourcesModel.statics.getResource = async function(id) {
+    return this.findOne({id: id}).lean().catch(e => {
+        errorReport(e);
+        console.error('getAllResources err', e);
+    });
+};
 
-ResourcesModel.statics.getResources = async function() {
+
+ResourcesModel.statics.getAllResources = async function() {
     return this.find().catch(e => {
         errorReport(e);
-        console.error('getResources err', e);
+        console.error('getAllResources err', e);
     });
 };
 
@@ -28,12 +35,20 @@ ResourcesModel.statics.createResource = async function(body) {
 
 };
 
-ResourcesModel.statics.updateResource = async function(body) {
+ResourcesModel.statics.updateResource = async function(id, body) {
 
-    return this.update(
-        {},
+    return this.findOneAndUpdate(
+        { id: id },
         { '$set': body },
         { upsert: true, new: true}
+    ).lean().catch(e => {
+        console.error('createResource err', e);
+    });
+
+};
+
+ResourcesModel.statics.deleteResource = async function(id) {
+    return this.findOneAndDelete({id: id}
     ).lean().catch(e => {
         console.error('createResource err', e);
     });

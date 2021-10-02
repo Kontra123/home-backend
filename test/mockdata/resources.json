@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "actionIds": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ],
+        "_id": "6096fe421eb87a0004d845a1",
+        "name": "Item 1",
+        "description": "This is Item 1 description",
+        "resourceType": "x type 1",
+        "path": "api/details/item_1",
+        "__v": 0
+    },
+    {
+        "id": 2,
+        "actionIds": [
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "_id": "6096fe461eb87a0004d845a2",
+        "name": "Item 2",
+        "description": "This is Item 2 description",
+        "resourceType": "x type 1",
+        "path": "api/details/item_2",
+        "__v": 0
+    },
+    {
+        "id": 3,
+        "actionIds": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ],
+        "_id": "6096fe4a1eb87a0004d845a3",
+        "name": "Item 3",
+        "description": "This is Item 3 description",
+        "resourceType": "x type 1",
+        "path": "api/details/item_3",
+        "__v": 0
+    },
+    {
+        "id": 4,
+        "actionIds": [
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "_id": "6096fe4d1eb87a0004d845a4",
+        "name": "Item 4",
+        "description": "This is Item 4 description",
+        "resourceType": "x type 1",
+        "path": "api/details/item_4",
+        "__v": 0
+    },
+    {
+        "id": 5,
+        "actionIds": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ],
+        "_id": "6096fe4f1eb87a0004d845a5",
+        "name": "Item 5",
+        "description": "This is Item 5 description",
+        "resourceType": "x type 1",
+        "path": "api/details/item_5",
+        "__v": 0
+    }
+]
