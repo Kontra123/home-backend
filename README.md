@@ -1,5 +1,5 @@
-Backend for client project:
-https://resources-ea1c4.web.app
+Frontend Source code:
+https://github.com/Kontra123/home-frontend
 
-Source code:
-https://github.com/Kontra123/Demo-ReactJS
+Frontend host:
+https://home-frontend.herokuapp.com/main?item=4
