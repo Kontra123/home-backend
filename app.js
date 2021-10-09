@@ -1,3 +1,4 @@
+const common = require("./utils/common")
 const _secrets = require('./utils/secrets');
 _secrets.setSecrets();
 
@@ -11,7 +12,6 @@ const bodyParser = require('koa-bodyparser');
 const _resourceController = require('./controller/resourceController');
 const _actionController = require('./controller/actionController');
 
-const PORT = process.env.PORT || 9002
 const app = new Koa();
 const router = new Router();
 
@@ -21,7 +21,7 @@ app.use(bodyParser({
   jsonLimit: '30mb'
 }));
 //
-router.get('/echo', (ctx) => ctx.body = 'Hello World');
+router.get('/echo', (ctx) => ctx.body = common.createResponse('Hello World'));
 
 router.get('/resource/:id', _resourceController.getResource);
 router.get('/resources', _resourceController.getAllResources);
@@ -41,12 +41,11 @@ mongoose.connect(mongoUri, { useNewUrlParser: true }).catch(err => {
 
 app.use(router.routes());
 
-// mongodb.connect();
-
-app.listen(PORT, function () {
+const PORT = process.env.PORT || 9001
+const server = app.listen(PORT, function () {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/", PORT, PORT);
 });
     
-module.exports = app
+module.exports = server
 
 

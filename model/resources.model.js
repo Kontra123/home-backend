@@ -40,7 +40,7 @@ ResourcesModel.statics.updateResource = async function(id, body) {
     return this.findOneAndUpdate(
         { id: id },
         { '$set': body },
-        { upsert: true, new: true}
+        { upsert: false, new: true}
     ).lean().catch(e => {
         console.error('createResource err', e);
     });

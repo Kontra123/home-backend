@@ -10,7 +10,9 @@
     "start": "node index.js",
     "test": "node test.js",
     "debug": "node --inspect-brk server.js",
-    "test:integration": "jest --watchAll --runInBand \"test/.*\\.test\\.js\""
+    "test:unit": "jest test/unit/*",
+    "test:integration": "jest --watchAll --runInBand \"test/.*\\.test\\.js\"",
+    "deploy": "git push heroku main"
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",
@@ -23,6 +25,7 @@
     "mongoose": "^5.11.18"
   },
   "devDependencies": {
+    "@shopify/jest-koa-mocks": "^3.0.5",
     "got": "^11.3.0",
     "jest": "^25.5.4",
     "supertest": "^6.1.6",

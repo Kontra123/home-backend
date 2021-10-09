@@ -1,6 +1,5 @@
 const request = require('supertest');
-const app = require('../../server');
-const endpointUrl = "/api";
+const app = require('../../app');
 const mongoose = require('mongoose');
 
 describe("Validate", () => {
@@ -12,8 +11,8 @@ describe("Validate", () => {
 
     test("Get /echo ", async () => {
         const response = await request(app).get('/echo')
-        expect(response.text).toEqual('Hello World')
-        expect(response.statusCode).toBe(200)
+        expect(response.body.data).toEqual('Hello World')
+        expect(response.body.statusCode).toBe(200)
     });
 
 });
