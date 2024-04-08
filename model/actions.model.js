@@ -9,7 +9,7 @@ const ActionsModel = new Schema({
 
 ActionsModel.statics.getAllActions = async function() {
     return this.find().catch(e => {
-        errorReport(e);
+        // errorReport(e);
         console.error('getAllActions err', e);
     });
 };

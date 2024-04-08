@@ -1,4 +1,3 @@
-const common = require("./utils/common")
 const _secrets = require('./utils/secrets');
 _secrets.setSecrets();
 
@@ -7,10 +6,7 @@ const Router = require("koa-router");
 const cors = require('@koa/cors');
 const mongoose = require('mongoose');
 const bodyParser = require('koa-bodyparser');
-
-
-const _resourceController = require('./controller/resourceController');
-const _actionController = require('./controller/actionController');
+const routes = require('./routes/routes');
 
 const app = new Koa();
 const router = new Router();
@@ -20,26 +16,36 @@ app.use(cors());
 app.use(bodyParser({
   jsonLimit: '30mb'
 }));
-//
-router.get('/echo', (ctx) => ctx.body = common.createResponse('Hello World'));
 
-router.get('/resource/:id', _resourceController.getResource);
-router.get('/resources', _resourceController.getAllResources);
-router.post('/resource/create', _resourceController.createResource);
-router.put('/resource/update/:id', _resourceController.updateResource);
-router.delete('/resource/delete/:id', _resourceController.deleteResource);
+// Custom error handling middleware
+app.use(async (ctx, next) => {
+  try {
+      await next(); // Always await the next middleware
+  } catch (err) {
+      ctx.status = err.statusCode || 500;
+      ctx.body = { error: err.message };
+  }
+});
 
-router.get('/actions', _actionController.getAllActions);
-//
+
 // Mongoose config
 mongoose.Promise = require('bluebird');
 const mongoUri = process.env.MONGOURI;
 
-mongoose.connect(mongoUri, { useNewUrlParser: true }).catch(err => {
+mongoose.connect(mongoUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true 
+}).then(() => {
+  console.log('MongoDB connected successfully');
+}).catch(err => {
     console.error('Error connecting to Mongo', err);
+    process.exit(1); 
 });
 
+router.use(routes.routes());
 app.use(router.routes());
+
+
 
 const PORT = process.env.PORT || 9001
 const server = app.listen(PORT, function () {

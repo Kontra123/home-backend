@@ -5,10 +5,10 @@ const Schema = mongoose.Schema;
 
 const ResourcesModel = new Schema({
     id: {type: Number, default: -1},
-    name: {type: String},
-    path: {type: String},
+    name: {type: String, required: true},
+    path: {type: String, required: true},
     actionIds: [Number],
-    resourceType: { type: String },
+    resourceType: { type: String, required: true },
     description: { type: String }
 })
 

@@ -1,7 +1,8 @@
-exports.createResponse = (data, statusCode = 200, error) => {
+exports.createResponse = (data, code = 200, error) => {
     const response = {
         data: data,
-        statusCode: statusCode       
+        code: code,
+        now: new Date()       
     }
     if(error) {
         response.error = error
